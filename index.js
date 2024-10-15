@@ -9,29 +9,42 @@ class Numbers {
       this.data = data;
     }
   }
-  count() {
-    //return the count of numbers in data
+  count() { //return the count of numbers in data
+    return this.data.length; 
   }
-  printNumbers() {
-    //print the numbers in data
+  printNumbers() { //print the numbers in data
+    this.data.forEach((number, index) => {
+      console.log(`Index ${index}: ${number}`);
+    }); 
   }
-  odds() {
-    //return the odd numbers in data
+  odds() { //return the odd numbers in data
+    return this.data.filter(number => number%2 !== 0);
   }
-  evens() {
-    //return the even numbers in data
+  evens() { //return the even numbers in data
+    return this.data.filter(number => number%2 ===0);
   }
-  sum() {
-    //return the sum of the numbers
+  sum() { //return the sum of the numbers
+    return this.data.reduce((acc, number) => acc+number, 0);
   }
-  product() {
-    //return the product of the numbers
+  product() {  //return the product of the numbers
+    return this.data.reduce((acc, number) => acc*number, 1);
   }
-  greaterThan(target) {
-    //return the numbers greater than the target
+  greaterThan(target) { //return the numbers greater than the target
+    return this.data.filter(number => number>target);
   }
-  howMany(target) {
-    //return the count of a given number
+  howMany(target) { //return the count of a given number
+    return this.data.filter(number => number===target).length;
+  }
+  stats(){
+    const obj={};
+    this.data.forEach(number=>{
+      if(obj[number]) {
+        obj[number]=obj[number]+1;
+      } else {
+        obj[number]=1;
+      }
+    });
+    return obj; 
   }
 }
 
